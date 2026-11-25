@@ -54,15 +54,6 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
     cursor: pointer;
 }
-
-.taliakart {
-background-color: rgba(20, 25, 35, 0.9);
-color: white;
-padding: 25px;
-border-radius: 10px;
-width: 320px;
-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-} 
 .start-screen {
     background-color: rgba(20, 25, 35, 0.9);
     color: white;

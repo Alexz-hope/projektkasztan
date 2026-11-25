@@ -14,9 +14,12 @@
             <div class="stats">
                 <h2>Gra Wyzej Nizej</h2>
                 </div>
-                <div class="board">
-                    Plansza gry
-                </div>
+                    <div class="board">
+        <div class="card-place" id="place1"></div>
+         <div class="card-place" id="place2"></div>
+         <div class="card-place" id="place3"></div>
+         <div class="card-place" id="place4"></div>
+</div>
             </div>
     </div>
                 <div id="start-screen" class="start-screen">
@@ -48,28 +51,53 @@
     </div>
 
     <script>
-        $('.hidden-panel').hide();
-        $('.right-panel').hide();
-        $(document).ready(function() {
-            $('#start-form').on('submit', function(e) {
-                e.preventDefault();
+     $(document).ready(function() {
 
-                let name = $('#player-name').val().trim();
+    $('.hidden-panel').hide();
+    $('.right-panel').hide();
 
-                if (name.length < 3) {
-                    $('#error-msg').show();
-                } else {
-                    $('#error-msg').hide();
-                    $('#display-name').text(name);
-                    
-                    $('#start-screen').hide();
-                    $('#game-screen').show();
+    let karty = [];
+    let kolory = ["kier", "karo", "trefl", "pik"];
+    let wartosci = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 
-                    $('.hidden-panel').show();
-                    $('.right-panel').show();
-                }
-            });
+    $.each(kolory, function(i, kolor) {
+        $.each(wartosci, function(j, wartosc) {
+            karty.push(wartosc + "_" + kolor + ".png");
         });
+    });
+
+    $('#start-form').on('submit', function(e) {
+        e.preventDefault();
+
+        let name = $('#player-name').val().trim();
+
+        if (name.length < 3) {
+            $('#error-msg').show();
+        } else {
+            $('#error-msg').hide();
+            $('#display-name').text(name);
+
+            $('#start-screen').hide();
+            $('#game-screen').show();
+
+            $('.hidden-panel').show();
+            $('.right-panel').show();
+        }
+    });
+
+    $('.taliakart img').on('click', function() {
+
+        let losowa = Math.floor(Math.random() * karty.length);
+
+        let karta = karty[losowa];
+
+        $('#place1').html(
+            '<img src="../taliakart/' + karta + '">'
+        );
+
+    });
+
+});
     </script>
 
 </body>
