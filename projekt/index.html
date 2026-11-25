@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gra</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <div class="left-side">
+        <div id="game-screen">
+            <div class="stats">
+                <h2>Gra Wyzej Nizej</h2>
+                </div>
+                <div class="board">
+                    Plansza gry
+                </div>
+            </div>
+    </div>
+                <div id="start-screen" class="start-screen">
+                <h2>Nowa Gra</h2>
+                <form id="start-form">
+                    <input type="text" id="player-name" placeholder="Wpisz imię (min. 3 znaki)" maxlength="15">
+                    <p id="error-msg" class="error">Imię musi mieć minimum 3 znaki!</p>
+                    <button type="submit">Rozpocznij grę</button>
+                </form>
+                
+            </div>
+    <div class="right-panel" >
+            <div class="taliakart">
+                    <h2>taliakart</h2>
+                    <img src="../img/backcard.png" alt="Talia kart">
+                </div>
+        
+      
+
+        <div class=" container2 hidden-panel">
+            <h2>Tabela Punktaci</h2>
+            <div class="player">
+                    <span>Gracz: <strong id="display-name"></strong></span>
+                    <span>Punkty: <strong>0</strong></span>
+                </div>
+            <p class="sub-text">Tu możesz wrzucić np. ekwipunek, ranking lub sklep.</p>
+        </div>
+
+    </div>
+
+    <script>
+        $('.hidden-panel').hide();
+        $('.right-panel').hide();
+        $(document).ready(function() {
+            $('#start-form').on('submit', function(e) {
+                e.preventDefault();
+
+                let name = $('#player-name').val().trim();
+
+                if (name.length < 3) {
+                    $('#error-msg').show();
+                } else {
+                    $('#error-msg').hide();
+                    $('#display-name').text(name);
+                    
+                    $('#start-screen').hide();
+                    $('#game-screen').show();
+
+                    $('.hidden-panel').show();
+                    $('.right-panel').show();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
