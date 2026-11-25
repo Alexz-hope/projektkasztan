@@ -14,12 +14,7 @@
             <div class="stats">
                 <h2>Gra Wyzej Nizej</h2>
                 </div>
-                    <div class="board">
-        <div class="card-place" id="place1"></div>
-         <div class="card-place" id="place2"></div>
-         <div class="card-place" id="place3"></div>
-         <div class="card-place" id="place4"></div>
-</div>
+               <div class="board" id="board"></div>
             </div>
     </div>
                 <div id="start-screen" class="start-screen">
@@ -40,22 +35,31 @@
       
 
         <div class=" container2 hidden-panel">
-            <h2>Tabela Punktaci</h2>
+            <h2>Statystki</h2>
             <div class="player">
                     <span>Gracz: <strong id="display-name"></strong></span>
+                    <br>
                     <span>Punkty: <strong>0</strong></span>
+                    <br>
+                    <span>Etap: <strong>0</strong></span>
+                    <br>
+                    <span>Wygrane: <strong>0</strong></span>
+                    <br>
+                    <span>Przegrane <strong>0</strong></span>
+                    <br>
                 </div>
-            <p class="sub-text">Tu możesz wrzucić np. ekwipunek, ranking lub sklep.</p>
         </div>
 
     </div>
 
     <script>
-     $(document).ready(function() {
+          $('.hidden-panel').hide();
+          $('.right-panel').hide();
+       $(document).ready(function() {
 
-    $('.hidden-panel').hide();
-    $('.right-panel').hide();
+  
 
+   
     let karty = [];
     let kolory = ["kier", "karo", "trefl", "pik"];
     let wartosci = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
@@ -66,6 +70,7 @@
         });
     });
 
+   
     $('#start-form').on('submit', function(e) {
         e.preventDefault();
 
@@ -85,14 +90,15 @@
         }
     });
 
+  
     $('.taliakart img').on('click', function() {
 
         let losowa = Math.floor(Math.random() * karty.length);
 
         let karta = karty[losowa];
 
-        $('#place1').html(
-            '<img src="../taliakart/' + karta + '">'
+        $('#board').append(
+            '<img src="../taliakart/' + karta + '" alt="Karta">'
         );
 
     });

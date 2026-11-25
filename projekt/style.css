@@ -142,7 +142,6 @@ button:hover {
     color: #38bdf8;
 }
 .player {
-    display: flex;
     background: #0f172a;
     padding: 10px;
     border-radius: 6px;
@@ -163,4 +162,14 @@ button:hover {
     align-items: center;
     margin-left: 75px;
     color: #94a3b8;
+    gap: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.board img {
+    width: 125px;
+    height: 180px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
