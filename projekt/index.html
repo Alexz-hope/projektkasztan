@@ -6,6 +6,7 @@
     <title>Gra</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
 
@@ -14,7 +15,15 @@
             <div class="stats">
                 <h2>Gra Wyzej Nizej</h2>
                 </div>
-               <div class="board" id="board"></div>
+               <div class="board" id="board">
+
+    <label for="wybor">Wybierz kolor karty:</label>
+
+    <select id="wybor">
+        <option value="czerwony">Czerwony</option>
+        <option value="czarny">Czarny</option>
+    </select>
+</div>
             </div>
     </div>
                 <div id="start-screen" class="start-screen">
@@ -51,59 +60,9 @@
         </div>
 
     </div>
-
     <script>
-          $('.hidden-panel').hide();
+        $('.hidden-panel').hide();
           $('.right-panel').hide();
-       $(document).ready(function() {
-
-  
-
-   
-    let karty = [];
-    let kolory = ["kier", "karo", "trefl", "pik"];
-    let wartosci = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
-
-    $.each(kolory, function(i, kolor) {
-        $.each(wartosci, function(j, wartosc) {
-            karty.push(wartosc + "_" + kolor + ".png");
-        });
-    });
-
-   
-    $('#start-form').on('submit', function(e) {
-        e.preventDefault();
-
-        let name = $('#player-name').val().trim();
-
-        if (name.length < 3) {
-            $('#error-msg').show();
-        } else {
-            $('#error-msg').hide();
-            $('#display-name').text(name);
-
-            $('#start-screen').hide();
-            $('#game-screen').show();
-
-            $('.hidden-panel').show();
-            $('.right-panel').show();
-        }
-    });
-
-  
-    $('.taliakart img').on('click', function() {
-
-        let losowa = Math.floor(Math.random() * karty.length);
-
-        let karta = karty[losowa];
-
-        $('#board').append(
-            '<img src="../taliakart/' + karta + '" alt="Karta">'
-        );
-
-    });
-
-});
     </script>
 
 </body>

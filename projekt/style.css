@@ -41,14 +41,14 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* Zdjęcie na środku bez użycia calc */
+
 .taliakart img {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     
-    width: 160px;            /* Stała szerokość karty (dopasuj według uznania) */
+    width: 160px;           
     height: auto;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
@@ -165,6 +165,7 @@ button:hover {
     gap: 10px;
     padding: 15px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .board img {
@@ -172,4 +173,16 @@ button:hover {
     height: 180px;
     object-fit: contain;
     flex-shrink: 0;
+}
+
+#board label {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+#board select {
+    position: absolute;
+    bottom: 10px;
+    left: 190px;
 }
